@@ -6,5 +6,5 @@ In each hour a clinet can write down whatever they wish for the hour, and then s
 
 The live application can be seen here at: https://william-appleton.github.io/daily-planner/
 
-And here is a sample image of the finished application: 
+And here is a sample image of the finished application: ![](https://raw.githubusercontent.com/william-appleton/daily-planner/main/Assets/finished-app.PNG)
 
