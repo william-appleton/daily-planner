@@ -30,7 +30,7 @@
     </header>
 
     <div class="container">
-      <div class="row" id="hour9" value="09">
+      <div class="row" id="hour9" value="9">
         <div class="col-lg-2 hour row2">
           <p>9:00 am</p>
         </div>
@@ -143,8 +143,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
+      //adds time stamp to header:
        $("#currentDay").text(moment().format('dddd, LL'));
+
+       console.log(moment().format('H'))
+       
+      
+      //adds appropraite color coding to text areas depending on time of day 
       for (i = 9; i < 18; i++ ) {
+        console.log($("#hour" + [i]).val())
         if ($("#hour" + [i]).val() < moment().format('H')) {
           $("#time" + [i]).addClass('past')
         } else if ($("#hour" + [i]).val() > moment().format('H')) {
