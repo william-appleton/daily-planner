@@ -30,11 +30,11 @@
     </header>
 
     <div class="container">
-      <div class="row">
+      <div class="row" id="hour9" value="09">
         <div class="col-lg-2 hour row2">
           <p>9:00 am</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time9">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -43,10 +43,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour10" value="10">
           <p>10:00 am</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time10">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -55,10 +55,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour11" value="11">
           <p>11:00 am</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time11">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -67,10 +67,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour12" value="12">
           <p>12:00 pm</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time12">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -79,10 +79,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour13" value="13">
           <p>1:00 pm</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2"  id="time13">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -91,10 +91,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour14" value="14">
           <p>2:00 pm</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time14">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -103,10 +103,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour15" value="15">
           <p>3:00 pm</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time15">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -115,10 +115,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour16" value="16">
           <p>4:00 pm</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time16">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -127,10 +127,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2 hour row2">
+        <div class="col-lg-2 hour row2" id="hour17" value="17">
           <p>5:00 pm</p>
         </div>
-        <div class="col-lg-8 whiteBorder row2">
+        <div class="col-lg-8 whiteBorder row2" id="time17">
           <textarea class="textarea"></textarea>
         </div>
         <div class="col-lg-2 row2">
@@ -143,9 +143,16 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
-      $("#currentDay").text(moment().format('dddd, LL'));
-      let a = moment().format();
-      console.log(a)
+       $("#currentDay").text(moment().format('dddd, LL'));
+      for (i = 9; i < 18; i++ ) {
+        if ($("#hour" + [i]).val() < moment().format('H')) {
+          $("#time" + [i]).addClass('past')
+        } else if ($("#hour" + [i]).val() > moment().format('H')) {
+          $("#time" + [i]).addClass('future')
+        } else {
+          $("#time" + [i]).addClass('present')
+        }
+      }
 
 
 
