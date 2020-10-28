@@ -30,15 +30,16 @@
     </header>
 
     <div class="container">
+
       <div class="row">
         <div class="col-lg-2 hour row2">
           <p>9:00 am</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h9">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i9"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b9">Save</button>
         </div>
       </div>
 
@@ -47,10 +48,10 @@
           <p>10:00 am</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h10">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i10"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b10">Save</button>
         </div>
       </div>
 
@@ -59,10 +60,10 @@
           <p>11:00 am</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h11">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i11"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b11">Save</button>
         </div>
       </div>
 
@@ -71,10 +72,10 @@
           <p>12:00 pm</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h12">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i12"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b12">Save</button>
         </div>
       </div>
 
@@ -83,10 +84,10 @@
           <p>1:00 pm</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h13">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i13"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b13">Save</button>
         </div>
       </div>
 
@@ -95,10 +96,10 @@
           <p>2:00 pm</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h14">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i14"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b14">Save</button>
         </div>
       </div>
 
@@ -107,10 +108,10 @@
           <p>3:00 pm</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h15">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i15"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b15">Save</button>
         </div>
       </div>
 
@@ -119,10 +120,10 @@
           <p>4:00 pm</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h16">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i16"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b16">Save</button>
         </div>
       </div>
 
@@ -131,10 +132,10 @@
           <p>5:00 pm</p>
         </div>
         <div class="col-lg-8 whiteBorder row2" id="h17">
-          <textarea class="textarea"></textarea>
+          <textarea class="textarea" id="i17"></textarea>
         </div>
         <div class="col-lg-2 row2">
-          <button class="saveBtn" type="button">Save</button>
+          <button class="saveBtn" type="button" id="b17">Save</button>
         </div>
       </div>
 
@@ -143,19 +144,35 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
+
       //adds time stamp to header:
        $("#currentDay").text(moment().format('dddd, LL'));     
   
       
       //adds appropraite color coding to text areas depending on time of day 
       for (let i = 9; i < 18; i++ ) {
-        console.log(i)
         if (i < moment().format('H')) {
           $("#h" + i).addClass('past')
         } else if (i > moment().format('H')) {
           $("#h" + i).addClass('future')
         } else {
           $("#h" + i).addClass('present')
+        }
+      }
+
+      //adds local storage save function
+      for (let i = 9; i < 18; i++ ) {
+        $("#b" + i).click(function() {
+          let inputN = $("#i" + i).val()
+          localStorage.setItem("v" + i, inputN) 
+        })
+      }
+
+      //writes saved text to page
+      for (let i = 9; i < 18; i++ ) {
+        let localStorageItem = localStorage.getItem("v" + i)
+        if (localStorageItem !== "") {
+          $("#i" + i).html(localStorageItem)
         }
       }
 
