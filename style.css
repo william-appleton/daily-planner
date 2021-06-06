@@ -1,13 +1,17 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
-textarea{
+h1 {
+  font-family: "Abril Fatface", cursive;
+  margin-bottom: 15px;
+}
+
+textarea {
   background: transparent;
   border: none;
-  resize: none;
   color: #000000;
   border-left: 1px solid black;
 }
@@ -20,11 +24,15 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
+.heading-text {
+  font-size: 20px;
+}
+
+.description {
   white-space: pre-wrap;
 }
 
-.time-block{
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
@@ -32,11 +40,11 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .row2 {
-  height:80px;
+  height: 80px;
 }
 
 .hour {
@@ -64,15 +72,22 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #37aac4;
   color: white;
+  font-size: 1em;
+  height: 40px;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .whiteBorder {
   border-top: 1px solid white;
+}
+
+.tb-padding {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
